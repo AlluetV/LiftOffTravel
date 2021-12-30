@@ -1,5 +1,13 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-<app-description-bar></app-description-bar>
-<div><router-outlet></router-outlet></div>
-<app-footer></app-footer>
+<app-header flexLayout="column"></app-header>
+<div flexLayout="column" fxFlex>
+    <div fxFlex="20">
+        <app-sidebar fxFlex=""></app-sidebar>
+    </div>
+    <div fxFlex="50" class="content">
+        <router-outlet fxFlex="" ></router-outlet>
+    </div>
+</div>
+<div fxFlex="30" class="description">
+    <app-description-bar fxFlex="row"></app-description-bar>
+</div>
+<app-footer flexLayout="column"></app-footer>
