@@ -47,7 +47,18 @@ export class PackagesComponent implements OnInit {
   }
 
   //display de descrption of the packages selected
- // displayPackage(planet:object){
-
- // }
+  displayPackage(planet:Planets): String{
+    let details ='';
+    for (const item of this.planets) {
+      if(planet === item){
+        details = `
+        <h3>{planet.name} Pack</h3>
+        <p>{{planet.description}}</p>
+        <p>The pack available is {{planet.pack}}.</p>
+        <p>The depoatrure day are {{planet.departure}}.</p>
+        <p>This trip has a duration of {{planet.duration}}.</p>`
+      }
+    }
+    return details;
+  }
 }
