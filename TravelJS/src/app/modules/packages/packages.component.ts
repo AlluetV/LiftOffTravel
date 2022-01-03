@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Planets } from 'src/app/planets';
 
 
 @Component({
@@ -8,14 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PackagesComponent implements OnInit {
 
-  planets: object[] = [
-    {id: 1, name:"Mars and phobos"},
-    {id: 2, name:"Jupiter Moons"},
-    {id: 3, name:"Saturn moons"},
-    {id: 4, name:"Uranus Moons"},
-    {id: 5, name:"Jupiter's Moons"},
-    {id: 6, name:"Neptune Moons"},
+ @Input() planets: Planets[] =[
+  {
+    id: 1,
+    name: 'Mars',
+    description: 'Forth palnet',
+    pack: 'Mars , phobos and deimos',
+    departure: 'First saturday of each month',
+    duration: '3 years',
+    price: 100000,
+    
+  },
+  {
+    id: 2,
+    name: 'Jupiter',
+    description: 'Fifth palnet',
+    pack: 'Jupiter Moons',
+    departure: 'Second saturday of April and August',
+    duration: '5 years',
+    price: 200000,
+    
+  },
+  {
+    id: 3,
+    name: 'Saturn',
+    description: 'Sixth palnet',
+    pack: 'Moons of saturn',
+    departure: 'Third saturday of April',
+    duration: '8 years',
+    price: 300000
+  }   
   ];
+ 
   constructor() { }
 
   ngOnInit() {
