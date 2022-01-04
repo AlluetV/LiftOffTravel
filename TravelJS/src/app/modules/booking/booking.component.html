@@ -1,1 +1,41 @@
-<p>booking works!</p>
+<div class="container">
+    <div >
+      <h1>Booking Form</h1>
+      <form>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"required>
+          <div class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="">Adress</label>
+          <input type="text" class="form-control" id="adress">
+        </div>
+  
+        <div class="form-group">
+            <label for="pickPlanet">Planet Pack</label>
+            <select class="form-control" id="pickedPlanet">
+              <option *ngFor="let item of planet" [value]="item">{{item.name}}</option>
+            </select>
+            <div >
+              Planet Pack selection is required
+            </div>
+        
+
+          <div class="form-group">
+            <label for="Numpeople">Select number of travelers</label>
+            <select class="form-control" id="travelers">
+              <option >1</option>
+              <option >2</option>
+              <option >3</option>
+              <option >4</option>
+            </select>
+            <div >
+              Planet Pack selection is required
+            </div>
+          </div>
+  
+        <button type="submit" class="btn btn-success" >Submit</button>

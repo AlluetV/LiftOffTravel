@@ -1,11 +1,34 @@
-<div>
-    <div class="dispalyPacks">
-        <h3>Packs</h3>
-        <p>Space travel agency has designed packages ....</p>
-        <label>Packs</label>
-        <select>
-            <option *ngFor="let planet of planets">{{planet.pack}}</option>
-        </select>
-        <!--<button (click)="displayPackage()"></button>-->
+
+     <div class="dispalyPacks" *ngIf="display ; else otherContent">
+        <h2>Packs</h2>
+        <p>Space travel agency has designed packages by planet....</p>
+       
+            <select class="pickPlanet">
+                <option *ngFor="let item of planet" [class.selected]="item === selectedPlanet"
+                (click)="onSelect(item)">
+                <!--<span class="badge">{{item.id}}</span>-->
+                {{item.name}}</option>
+            </select>
+       
+        <button type="submit" class="btn btn-success" id="packs"
+        (click)="changeData()">Check</button>
     </div>
+
+    <div >
+        <ng-template #otherContent>
+            <div>
+                <div *ngIf="item">
+
+                    <h2>{{item.name | uppercase } Details</h2>
+                    <div><span>id: </span>{{item}}</div>
+                   
+                  </div>
+                <button type="button" class="btn btn-success"
+                (click)="changeData()">Back</button>
+            </div>
+            
+        </ng-template>
+    </div>
+
+   
 
