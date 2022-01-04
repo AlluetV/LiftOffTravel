@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Planets } from 'src/app/planets';
 import { planetJson } from 'src/app/mock-planets';
 
 @Component({

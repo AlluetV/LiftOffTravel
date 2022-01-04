@@ -12,29 +12,33 @@
   
         <div class="form-group">
           <label for="">Adress</label>
-          <input type="text" class="form-control" id="adress">
+          <input type="text" class="form-control" id="adress"required>
+          <div class="alert alert-danger">
+            Adress is required
+          </div>
         </div>
   
         <div class="form-group">
             <label for="pickPlanet">Planet Pack</label>
-            <select class="form-control" id="pickedPlanet">
+            <select class="form-control" id="pickedPlanet"required>
               <option *ngFor="let item of planet" [value]="item">{{item.name}}</option>
             </select>
-            <div >
-              Planet Pack selection is required
+            <div class="alert alert-danger">
+                Select a Planet
             </div>
+        </div>
         
 
           <div class="form-group">
             <label for="Numpeople">Select number of travelers</label>
-            <select class="form-control" id="travelers">
+            <select class="form-control" id="travelers"required>
               <option >1</option>
               <option >2</option>
               <option >3</option>
               <option >4</option>
             </select>
-            <div >
-              Planet Pack selection is required
+            <div class="alert alert-danger">
+                Select a number
             </div>
           </div>
   
