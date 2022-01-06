@@ -1,0 +1,29 @@
+.home{
+    padding:0;
+    align-items:flex-start;
+}
+
+.btn-group button {
+    background-color: cadetblue;
+    border: 1px solid cadetblue;
+    color: rgb(238, 230, 230); 
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #db9614;
+  }

@@ -1,7 +1,13 @@
-<div class="dispalyDestinations">
-    <h3>DESTINATIONS</h3>
-    <ul>
-        <li *ngFor="let planet of planets">{{planet.name}}</li>
-    </ul>
+<div  class="home-content" class="dispalyDestinations" >
+    <h3>LET'S GET YOU THERE !!!</h3>
+    <p>BEGIN YOUR ADVENTURE TODAY WITH THE HELP OF YOUR EXPERTS </p>
+    <h2>Destinations</h2>
+    <div class="btn-group"*ngFor="let planet of planet">
+        <ul>
+            <button style="width:50%">{{planet.name}}</button>
+        </ul>
+    </div>
+    
 </div>
 
+<!--<input type="radio">-->

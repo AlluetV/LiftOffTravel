@@ -7,14 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  planets: object[] = [
-    {name:"Mars"},
-    {name:"Jupiter"},
-    {name:"Saturn"},
-    {name:"Uranus"},
-    {name:"Jupiter"},
-    {name:"Neptune"},
-  ];
   constructor() { }
 
   ngOnInit() {
