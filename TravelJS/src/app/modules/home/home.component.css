@@ -1,15 +1,19 @@
-.home{
-    padding:0;
-    align-items:flex-start;
+.displayDestinations{
+ align-content:flex-start;
+}
+
+#imgSample{
+  max-width: 80%;
+  height: auto;
 }
 
 .btn-group button {
     background-color: cadetblue;
-    border: 1px solid cadetblue;
+    border: 1px solid rgb(65, 112, 114);
     color: rgb(238, 230, 230); 
-    padding: 10px 24px; /* Some padding */
+    padding: 10px ; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
+    float: center; /* Float the buttons side by side */
   }
   
   .btn-group button:not(:last-child) {
@@ -25,5 +29,5 @@
   
   /* Add a background color on hover */
   .btn-group button:hover {
-    background-color: #db9614;
+    background-color: #1e9b75;
   }

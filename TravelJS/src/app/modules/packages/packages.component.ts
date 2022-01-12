@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Planets } from 'src/app/planets';
-import { planetJson } from 'src/app/mock-planets';
+import { Planet } from 'src/app/planets';
+import { Observable } from 'rxjs';
+import { PlanetsService } from 'src/app/planets.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-packages',
@@ -9,23 +11,28 @@ import { planetJson } from 'src/app/mock-planets';
 })
 export class PackagesComponent implements OnInit {
   
-  planet = planetJson;
+  planets$!:Observable<Planet[]>;
 
-  selectedPlanet!: Planets;
+ // planet = planetJson;
+
+  selectedPlanet!: Planet;
  
-  @Input() item?:Planets;
+  @Input() item?:Planet;
   
   //dispaly hidden data when click the button
   display: boolean = true;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private planetsService: PlanetsService) { }
 
   ngOnInit() {
+    this.planets$ = this.planetsService.getPlanetDetails();
+    console.log(this.planets$);
+
     this.display =true;
   }
 
   //selected planet 
-  onSelect(item: Planets): void {
+  onSelect(item: Planet): void {
     this.selectedPlanet = item;
   }
 

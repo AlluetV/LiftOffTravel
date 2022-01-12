@@ -2,13 +2,23 @@
      <div class="dispalyPacks" *ngIf="display ; else otherContent">
         <h2>Packs</h2>
         <p>Space travel agency has designed packages by planet....</p>
-       
+        <p></p>
+        <label>Pick a Pack</label>
             <select class="pickPlanet">
-                <option *ngFor="let item of planet" [class.selected]="item === selectedPlanet"
+                <option *ngFor="let item of planets$ |async" [class.selected]="item === selectedPlanet"
                 (click)="onSelect(item)">
                 <!--<span class="badge">{{item.id}}</span>-->
                 {{item.name}}</option>
             </select>
+            <br>
+            <label>How many people?</label>
+            <select class="people">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            <br>
        
         <button type="submit" class="btn btn-success" id="packs"
         (click)="changeData()">Check</button>

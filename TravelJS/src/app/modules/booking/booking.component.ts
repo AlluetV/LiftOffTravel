@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { planetJson } from 'src/app/mock-planets';
+
 
 @Component({
   selector: 'app-booking',
@@ -8,7 +8,7 @@ import { planetJson } from 'src/app/mock-planets';
 })
 export class BookingComponent implements OnInit {
 
-  planet = planetJson;
+
 
   constructor() { }
 

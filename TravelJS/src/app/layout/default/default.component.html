@@ -1,9 +1,10 @@
+<!--This the container for the other componets-->
 <app-header flexLayout="column"></app-header>
-<div flexLayout="column" fxFlex>
+<div flexLayout="row" fxFlex>
     <div fxFlex="20">
         <app-sidebar fxFlex=""></app-sidebar>
     </div>
-    <div fxFlex="35" class="content" >
+    <div fxFlex="70" class="content" >
         <router-outlet fxFlex="" ></router-outlet>
     </div>
 </div>

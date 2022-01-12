@@ -1,13 +1,26 @@
-<div  class="home-content" class="dispalyDestinations" >
-    <h3>LET'S GET YOU THERE !!!</h3>
-    <p>BEGIN YOUR ADVENTURE TODAY WITH THE HELP OF YOUR EXPERTS </p>
+
+<!--this  component stores the planet list or destinations-->
+<div class="displayDestinations" >
+    <h3>LET'S GET YOU THERE</h3>
+    <p>Being your adventure today!!! </p>
     <h2>Destinations</h2>
-    <div class="btn-group"*ngFor="let planet of planet">
-        <ul>
-            <button style="width:50%">{{planet.name}}</button>
-        </ul>
-    </div>
+    <!-- here stars the destination list-->
+    <div class="btn-group"*ngFor="let item of planets$ | async">
+       <a>
+            <ul>
+               <button style="width:70%">{{item.name}}</button>
+            </ul>
+        </a> 
+       
+        <p *ngIf="item.description">
+        Description: {{item.description}}
+        </p>
+       
+         <!--<img  id="imgSample" src="https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/hubble_ngc_3568_potw2150a.jpg">-->
     
+        <button style="width:70%"> Select {{item.name}}</button>
+        <!--(click)="selectPlanet()"-->
+    </div>
+    <br>
 </div>
 
-<!--<input type="radio">-->
