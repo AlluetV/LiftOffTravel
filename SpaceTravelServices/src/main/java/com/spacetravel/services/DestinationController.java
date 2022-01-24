@@ -1,36 +1,32 @@
 package com.spacetravel.services;
 
-import com.spacetravel.dto.Destination;
+import com.spacetravel.models.dto.Destination;
+import com.spacetravel.models.repositories.DestinationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @RestController
 @RequestMapping("/destinations")
 public class DestinationController {
 
-    List<Destination> destinations;
+    @Autowired
+    private DestinationRepository destinationRepository;
 
-    @PostConstruct
-    public void init(){
-        destinations = new ArrayList<>();
-        destinations.add(new Destination(1,"Mars","Mars Planet"));
-        destinations.add(new Destination(2,"Jupiter","Jupiter Planet"));
-    }
 
     @GetMapping("/all")
-    public List<Destination> getAllDestinations(){
-        return destinations;
+    public Iterable<Destination> getAllDestinations(){
+        return destinationRepository.findAll();
     }
 
     @PostMapping("/add")
     public Destination addDestination(@RequestBody Destination destination){
         System.out.println("Adding: " + destination.toString());
-        destinations.add(destination);
-        return destination;
+        return destinationRepository.save(destination);
+    }
+
+    @GetMapping("/{id}")
+    public Destination findById(@PathVariable int id){
+        return destinationRepository.findById(id).orElseThrow();
     }
 
 }

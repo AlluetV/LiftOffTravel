@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Planet } from 'src/app/planets';
+import { Destination } from 'src/app/destination';
 import { PlanetsService } from 'src/app/planets.service';
 
 
@@ -12,22 +12,16 @@ import { PlanetsService } from 'src/app/planets.service';
 })
 export class HomeComponent implements OnInit {
  
-  planets$!:Observable<Planet[]>;
-  
-
-
-  //@Input() item?:Planets;
-
-  //addPlanet(planets:Planets){
-   // this.item.push(planets);
-
- // }
+  planets$!:Observable<Destination[]>;
   
   constructor( private route: ActivatedRoute, private planetsService: PlanetsService) { }
 
   ngOnInit() {
     this.planets$ = this.planetsService.getPlanetDetails();
     console.log(this.planets$);
+  }
+
+  selectDestination(){
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Planet } from 'src/app/planets';
+import { Destination } from 'src/app/destination';
 import { Observable } from 'rxjs';
 import { PlanetsService } from 'src/app/planets.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,34 +11,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PackagesComponent implements OnInit {
   
-  planets$!:Observable<Planet[]>;
+  planets$!:Observable<Destination[]>;
 
- // planet = planetJson;
-
-  selectedPlanet!: Planet;
+  selectedDestination!: Destination;
  
-  @Input() item?:Planet;
+  @Input() item!:Destination;
   
-  //dispaly hidden data when click the button
-  display: boolean = true;
-
   constructor(private route: ActivatedRoute, private planetsService: PlanetsService) { }
 
   ngOnInit() {
     this.planets$ = this.planetsService.getPlanetDetails();
     console.log(this.planets$);
 
-    this.display =true;
+   // this.display =true;
   }
 
   //selected planet 
-  onSelect(item: Planet): void {
-    this.selectedPlanet = item;
+  onSelect(item: Destination): void {
+    this.selectedDestination = item;
   }
 
   //display hidden data
 
-  changeData() {
-    this.display = !this.display;
-  }
+  //dispaly hidden data when click the button
+  //display: boolean = true;
+  
+  //changeData() {
+    //this.display = !this.display;
+  //}
 }

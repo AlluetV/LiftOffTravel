@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Planet } from './planets';
+import { Destination } from './destination';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PlanetsService {
-  item : Planet[] = [];
+  item : Destination[] = [];
 
   constructor(private http: HttpClient) {
 
@@ -22,16 +22,16 @@ export class PlanetsService {
     return this.item;
   }
 
-  clearPlanet(){
+  clearDestination(){
     this.item = [];
     return this.item;
   }
 
   getPlanetDetails(){
-    return this.http.get<Planet[]>('http://localhost:8080/destinations/all')
+    return this.http.get<Destination[]>('http://localhost:8080/destinations/all')
     .pipe(
       tap(_ => console.log('fetched planets')),
-      catchError(this.handleError<Planet[]>('planets', []))
+      catchError(this.handleError<Destination[]>('planets', []))
     );
   }
 
