@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Destination } from 'src/app/destination';
+import { Pack } from 'src/app/pack';
 import { Observable } from 'rxjs';
 import { PlanetsService } from 'src/app/planets.service';
 import { ActivatedRoute } from '@angular/router';
+import {BookingService} from 'src/app/booking.service';
 
 @Component({
   selector: 'app-packages',
@@ -11,25 +13,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PackagesComponent implements OnInit {
   
-  planets$!:Observable<Destination[]>;
 
-  selectedDestination!: Destination;
- 
-  @Input() item!:Destination;
+
+  destinationFromService!:PlanetsService;
   
   constructor(private route: ActivatedRoute, private planetsService: PlanetsService) { }
 
   ngOnInit() {
-    this.planets$ = this.planetsService.getPlanetDetails();
-    console.log(this.planets$);
+   
+   
 
    // this.display =true;
   }
 
-  //selected planet 
-  onSelect(item: Destination): void {
-    this.selectedDestination = item;
-  }
+
 
   //display hidden data
 

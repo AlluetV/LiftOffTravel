@@ -1,11 +1,11 @@
 
 <!--this  component stores the planet list or destinations-->
-<div class="displayDestinations" style="align-content:flex-end;">
+<div class="displayDestinations" style="place-content:initial;">
     <h3>LET'S GET YOU THERE</h3>
     <p>Being your adventure today!!! </p>
     <h2>Destinations</h2>
     <!-- here stars the destination list-->
-    <div class="btn-group" style="width:100%" *ngFor="let item of planets$ | async">
+    <div class="btn-group" style="width:70%" *ngFor="let item of planets$ | async">
         <a >
            <h3>{{item.name}}</h3>
         </a> 
@@ -14,9 +14,9 @@
         Description: {{item.description}}
         </p>
        
-        <img  id="imgSample" src="{{item.url}}">
+        <img  id="imgSample"  width="700"  src="{{item.url}}">
          
-        <button routerLink = "/packages" (click)="selectDestination()">> Select {{item.name}}</button> 
+        <button routerLink = "/packages" (click)="  sendDestination(item)"> Select {{item.name}}</button>
     </div>
     <br>
 </div>

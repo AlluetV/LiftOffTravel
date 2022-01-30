@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Destination } from 'src/app/destination';
 import { PlanetsService } from 'src/app/planets.service';
-
+import { BookingService } from 'src/app/booking.service';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
  
   planets$!:Observable<Destination[]>;
   
-  constructor( private route: ActivatedRoute, private planetsService: PlanetsService) { }
+  constructor( private route: ActivatedRoute, private planetsService: PlanetsService , private bookingService: BookingService) { }
 
   ngOnInit() {
     this.planets$ = this.planetsService.getPlanetDetails();
     console.log(this.planets$);
   }
 
-  selectDestination(){
+  sendDestination(destination : Destination){
+    //this.bookingService.setDestination(destination);
   }
-
 }

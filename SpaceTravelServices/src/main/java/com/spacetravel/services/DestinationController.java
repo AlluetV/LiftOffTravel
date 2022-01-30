@@ -12,7 +12,6 @@ public class DestinationController {
     @Autowired
     private DestinationRepository destinationRepository;
 
-
     @GetMapping("/all")
     public Iterable<Destination> getAllDestinations(){
         return destinationRepository.findAll();

@@ -14,19 +14,6 @@ export class PlanetsService {
 
   }
 
-  //addPlanet(planets:Planets){
-   // this.item.push(planets);
- // }
-
-  getItems(){
-    return this.item;
-  }
-
-  clearDestination(){
-    this.item = [];
-    return this.item;
-  }
-
   getPlanetDetails(){
     return this.http.get<Destination[]>('http://localhost:8080/destinations/all')
     .pipe(
@@ -48,4 +35,5 @@ export class PlanetsService {
       return of(result as T);
     };
   }
+  
 }
