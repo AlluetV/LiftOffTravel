@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Destination } from 'src/app/destination';
 import { Pack } from 'src/app/pack';
 import { Observable } from 'rxjs';
-import { PlanetsService } from 'src/app/planets.service';
 import { ActivatedRoute } from '@angular/router';
 import {BookingService} from 'src/app/booking.service';
+import { PackService } from 'src/app/pack.service';
 
 @Component({
   selector: 'app-packages',
@@ -13,15 +13,20 @@ import {BookingService} from 'src/app/booking.service';
 })
 export class PackagesComponent implements OnInit {
   
+  packages$! : Observable< Pack[] >;
 
+  destination!: Destination;
 
-  destinationFromService!:PlanetsService;
-  
-  constructor(private route: ActivatedRoute, private planetsService: PlanetsService) { }
+  constructor(private route: ActivatedRoute, private packService : PackService , private bookingService : BookingService) {
+
+  }
 
   ngOnInit() {
-   
-   
+
+    this.packages$ = this.packService.getPackDetails();
+    console.log(this.packages$);
+    
+    this.destination = this.bookingService.selectedDestination;
 
    // this.display =true;
   }

@@ -16,8 +16,7 @@ public class Package {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_package")
     private Integer idPack;
-    private String pack1;
-    private String pack2;
-    private Integer travelDate;
     private Integer price;
+    private String descriptionPack;
+    private String packName;
 }

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     console.log(this.planets$);
   }
 
-  sendDestination(destination : Destination){
-    //this.bookingService.setDestination(destination);
+  sendDestination(item : Destination){
+    this.bookingService.selectedDestination = item;
   }
 }

@@ -16,7 +16,7 @@ public class PackageController {
     public Iterable<Package> getAllPackages(){
         return packageRepository.findAll();
     }
-//revisar aqui packages
+
     @PostMapping("/add")
     public Package addPackage(@RequestBody Package pack){
         System.out.println("Adding: " + pack.toString());

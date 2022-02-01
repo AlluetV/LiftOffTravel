@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Booking } from './booking';
-import { Destination } from 'src/app/destination';
+import { Destination } from './destination';
+import { Pack } from './pack';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
-  
-  userBooking : Booking [] = []
 
+  selectedDestination !: Destination ;
+ /* selectedPAckage : Pack;
+  username : String;
+  email : String;
+  price :String;
+  travelDate : String;
+  count : Booking[];*/
+
+  
   constructor( private http: HttpClient ) {
-    
+  
    }
 }
 
 //setDestination ( ){}
- // this.item.push(planets);
+ // this.item;
 
  //getDestination(){}
 

@@ -1,6 +1,12 @@
 export interface Pack {
-    pack1: string;
-    pack2: string;
-    travelDate: string;
-    price : number;
+    idPack: Number;
+    price : Number;
+    descriptionPack : String;
+    packName : String;
 }
+
+
+/*  private Integer idPack;
+    private Integer price;
+    private String descriptionPack;
+    private String packName; */
