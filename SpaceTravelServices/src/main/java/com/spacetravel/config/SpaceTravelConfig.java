@@ -16,6 +16,8 @@ public class SpaceTravelConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/destinations/**").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/packages/**").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/booking/**").allowedOrigins("http://localhost:4200");
             }
         };
     }

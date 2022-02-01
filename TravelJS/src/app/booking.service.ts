@@ -10,12 +10,14 @@ import { Pack } from './pack';
 export class BookingService {
 
   selectedDestination !: Destination ;
- /* selectedPAckage : Pack;
+  selectedPackage! : Pack;
+ 
+ /* 
   username : String;
   email : String;
   price :String;
   travelDate : String;
-  count : Booking[];*/
+  count : ;*/
 
   
   constructor( private http: HttpClient ) {
@@ -23,12 +25,3 @@ export class BookingService {
    }
 }
 
-//setDestination ( ){}
- // this.item;
-
- //getDestination(){}
-
- //clearDestination(){
-  // this.selectedDestination = [];
-  // return this.selectedDestination;
-// }

@@ -1,23 +1,44 @@
 <div class="container">
   <title>Booking Form</title>
-  <form>
+  <form  >
     <div>
       <h2>Destination Selected</h2>
+      <h3>{{destination.name}}</h3>
       <h2> Travel Package Selected</h2>
+      <h3>{{userPack.packName}}</h3>
     </div>
+
     <div>
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required>
+      <label for="name">First Name:</label>
+      <input type="text" class="form-control" id="username"  required>
       <div class="alert alert-danger">
         Name is required
       </div>
     </div>
-    <div class="form-group">
+
+    <div class="form-control">
       <label for="">Email</label>
-      <input type="text" class="form-control" id="adress" required>
+      <input type="text" class="form-control" id="email" required>
       <div class="alert alert-danger">
         Email is required
-      </div>
+    </div>
+
+    <div>
+      <label>Travel date:</label>
+      <input type="date" class="form-control"  id="travelDate" required>
+    </div>
+
+    <div>
+      <label>Number of travelers:</label>
+      <input type ="number" min="1" max="10" value="1"  formControlName="count" id="count">
+    </div>
+
+    <div>
+      <label>Price per person:</label>
+      <P >{{ userPack.price}}</P>
+      <p>Price per group:</p>
+    </div>
+
     </div>
     <button routerLink = "/packages"  class="btn btn-fail" >Back</button>
     <button type="submit" class="btn btn-success" >Submit</button>
@@ -28,3 +49,6 @@
       
   
       
+
+    
+   

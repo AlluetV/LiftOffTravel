@@ -25,14 +25,15 @@ export class PackagesComponent implements OnInit {
 
     this.packages$ = this.packService.getPackDetails();
     console.log(this.packages$);
-    
+
     this.destination = this.bookingService.selectedDestination;
 
    // this.display =true;
   }
 
-
-
+  sendPack(itemPack : Pack){
+    this.bookingService. selectedPackage = itemPack;
+  }
   //display hidden data
 
   //dispaly hidden data when click the button

@@ -3,8 +3,8 @@
         <h2>Packs</h2>
         <p>Space travel agency has designed packages to have different experiences discovering each destination. </p>
         <div >
-            <h2>My Destination</h2> 
-            <h3 >{{destination.name}}</h3>
+            <h2>Your travel destination is: </h2> 
+            <h3 class="userDestination" >{{destination.name}}</h3>
             <br>
             <div  *ngFor="let package of packages$ | async">
                 <a>
@@ -18,7 +18,7 @@
                 </a> 
 
                 <button routerLink = "/" > Back </button>
-                <button routerLink = "/booking" > Book </button>
+                <button routerLink = "/booking" (click)="sendPack(package)"> Book </button>
             </div>
             
         </div>
