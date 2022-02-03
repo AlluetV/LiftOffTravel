@@ -12,10 +12,10 @@
     <P>{{ userPack.price}}</P>
   </div>
 
-  <form    formGroupName="bookingForm"  (ngSubmit)="onSubmit(bookingForm)" novalidate>
+  <form  #bookingForm="ngForm"  (ngSubmit)="onSubmit()" novalidate>
     <div>
       <label for="name">First Name:</label>
-      <input type="text" class="form-control" id="username"   formControlName="username" ngModel required >
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="booking.username" #username="ngModel" required >
       <div class="alert alert-danger">
         Name is required
       </div>
@@ -23,19 +23,19 @@
 
     <div class="form-control">
       <label for="">Email</label>
-      <input type="text" class="form-control" id="email"  formControlName="email" required>
+      <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="booking.email" required>
       <div class="alert alert-danger">
         Email is required
     </div>
 
     <div>
       <label>Travel date:</label>
-      <input type="date" class="form-control"  id="travelDate" formControlName="travelDatel"  required >
+      <input type="date" class="form-control"  id="travelDate" name="travelDate" [(ngModel)]="booking.travelDate"  required >
     </div>
 
     <div>
       <label>Number of travelers:</label>
-      <input type ="number" min="1" max="10" value="1" id="count" formControlName="count">
+      <input type ="number" min="1" max="10" value="1" id="count" name="count" [(ngModel)]="booking.count">
     </div>
 
     </div>
@@ -43,7 +43,7 @@
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
 </div>
-<div class="reservation" [hidden]="isDisplay"  *ngIf ="display()">
+<div class="reservation" [hidden]="isDisplay"  *ngIf ="false">
   <div *ngFor="let item on confirmation$">
     <p>Congratulations {{item.username}}</p>
     <p>Your number of confirmation is:</p>

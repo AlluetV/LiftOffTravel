@@ -7,7 +7,7 @@ import { BookingComponent } from 'src/app/modules/booking/booking.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     RouterModule,
     SharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ]
 })
 export class DefaultModule { }

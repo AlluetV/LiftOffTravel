@@ -16,9 +16,6 @@ export class BookingService {
   selectedDestination !: Destination ;
   selectedPackage! : Pack;
 
-// VARIABLE THAT STORES THE BOOKING DETAILS
-  bookingForm! : Booking;
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -31,12 +28,13 @@ export class BookingService {
 
   }
 
-  addBooking(){
-     return this.http.post<Booking>('http://localhost:8080/booking/add',this.bookingForm, this.httpOptions)
+  addBooking(booking : Booking ) : Observable<Booking> {
+    console.log("posting booking");
+    console.log(booking);
+     return this.http.post<Booking>('http://localhost:8080/booking/add', booking, this.httpOptions)
      .pipe(
-      tap(_ => console.log('fetched booking')),
-      catchError(this.handleError<Booking>('packages'))
-      );
+      catchError(this.handleError<Booking>('postBooking', booking))
+      )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
