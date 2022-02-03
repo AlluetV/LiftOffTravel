@@ -22,24 +22,17 @@ export class PackagesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    //displays the packages fron the database
     this.packages$ = this.packService.getPackDetails();
     console.log(this.packages$);
 
+    //displays the destinaton selected by the user
     this.destination = this.bookingService.selectedDestination;
 
-   // this.display =true;
   }
 
   sendPack(itemPack : Pack){
-    this.bookingService. selectedPackage = itemPack;
+    this.bookingService.selectedPackage = itemPack;
   }
-  //display hidden data
-
-  //dispaly hidden data when click the button
-  //display: boolean = true;
-  
-  //changeData() {
-    //this.display = !this.display;
-  //}
+ 
 }

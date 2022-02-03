@@ -1,16 +1,21 @@
 <div class="container">
   <title>Booking Form</title>
-  <form  >
-    <div>
-      <h2>Destination Selected</h2>
-      <h3>{{destination.name}}</h3>
-      <h2> Travel Package Selected</h2>
-      <h3>{{userPack.packName}}</h3>
-    </div>
+  <div>
+    <h2>Destination Selected</h2>
+    <h3>{{destination.name}}</h3> 
+    <h2> Travel Package Selected</h2>
+    <h3>{{userPack.packName}}</h3>
+  </div>
 
+  <div>
+    <label>Price per person:</label>
+    <P>{{ userPack.price}}</P>
+  </div>
+
+  <form    formGroupName="bookingForm"  (ngSubmit)="onSubmit(bookingForm)" novalidate>
     <div>
       <label for="name">First Name:</label>
-      <input type="text" class="form-control" id="username"  required>
+      <input type="text" class="form-control" id="username"   formControlName="username" ngModel required >
       <div class="alert alert-danger">
         Name is required
       </div>
@@ -18,33 +23,34 @@
 
     <div class="form-control">
       <label for="">Email</label>
-      <input type="text" class="form-control" id="email" required>
+      <input type="text" class="form-control" id="email"  formControlName="email" required>
       <div class="alert alert-danger">
         Email is required
     </div>
 
     <div>
       <label>Travel date:</label>
-      <input type="date" class="form-control"  id="travelDate" required>
+      <input type="date" class="form-control"  id="travelDate" formControlName="travelDatel"  required >
     </div>
 
     <div>
       <label>Number of travelers:</label>
-      <input type ="number" min="1" max="10" value="1"  formControlName="count" id="count">
-    </div>
-
-    <div>
-      <label>Price per person:</label>
-      <P >{{ userPack.price}}</P>
-      <p>Price per group:</p>
+      <input type ="number" min="1" max="10" value="1" id="count" formControlName="count">
     </div>
 
     </div>
-    <button routerLink = "/packages"  class="btn btn-fail" >Back</button>
-    <button type="submit" class="btn btn-success" >Submit</button>
+    <button routerLink = "/"  class="btn btn-fail" >Back</button>
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>
 </div>
-      
+<div class="reservation" [hidden]="isDisplay"  *ngIf ="display()">
+  <div *ngFor="let item on confirmation$">
+    <p>Congratulations {{item.username}}</p>
+    <p>Your number of confirmation is:</p>
+    <p>{{item.idBooing}} </p>
+    <p>Soon we are going to contact you to talk about all the details, please check your email {{item.email}}</p>
+  </div>
+</div>
   
       
   

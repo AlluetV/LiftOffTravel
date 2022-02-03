@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from 'src/app/booking';
 import { BookingService } from 'src/app/booking.service';
-import { ActivatedRoute } from '@angular/router';
 import { Pack } from 'src/app/pack';
 import { Destination } from 'src/app/destination';
-import { FormBuilder } from '@angular/forms';
-
+import { FormGroup, FormControl, NgForm ,NgModel} from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-booking',
@@ -16,20 +15,19 @@ export class BookingComponent implements OnInit {
   destination!: Destination;
   userPack!: Pack;
 
-  bookingForm = this.fb.group({
-    idDestination: '',
-    idPackage : '',
-    username :'',
-    email :'',
-    travelDate :'',
-    count :'',
-    price: ''
+  bookingForm = new FormGroup({
+    username : new FormControl(''),
+    email :new FormControl(''),
+    travelDate : new FormControl(''),
+    count :new FormControl(''),
+    price: new FormControl('')
   });
 
- 
- 
+  confirmation$! : Observable<Booking>;
 
-  constructor(private route : ActivatedRoute , private bookingService : BookingService  , private fb : FormBuilder) { }
+  isDisplay = false;
+
+  constructor( private bookingService : BookingService) { }
 
   ngOnInit() {
 
@@ -37,6 +35,26 @@ export class BookingComponent implements OnInit {
     this.userPack = this.bookingService. selectedPackage;
   }
 
- onSubmit():void{}
   
+
+ onSubmit(bookingForm: FormGroup){
+   console.log("on submit");
+  this.bookingService.bookingForm.idDestination = this.destination.id;
+  this.bookingService.bookingForm.idPackage = this.userPack.idPack;
+  this.bookingService.bookingForm.username =  this.bookingForm.get('username')?.value; 
+  this.bookingService.bookingForm.email = this.bookingForm.get('email')?.value;  
+  this.bookingService.bookingForm.travelDate = this.bookingForm.get('travelDate')?.value;
+  this.bookingService.bookingForm.count = this.bookingForm.get('count')?.value; 
+  this.bookingService.bookingForm.price =  this.userPack.price;
+
+
+
+  this.confirmation$ = this.bookingService.addBooking();
+ }
+
+ display(){
+   this.isDisplay = !this.isDisplay;
+ } 
+
 }
+
