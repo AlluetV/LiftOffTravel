@@ -1,45 +1,37 @@
 
-     <div class="dispalyPacks" ><!--*ngIf="display ; else otherContent"-->
-        <h2>Packs</h2>
+     <div class="dispalyPacks" >
+        <h2>Travel Packages:</h2>
         <p>Space travel agency has designed packages to have different experiences discovering each destination. </p>
-        <div >
-            <h2>Your travel destination is: </h2> 
-            <h3 class="userDestination" >{{destination.name}}</h3>
-            <br>
+
+        <div class="userSelection">
+            <h3>Selected destination: </h3>
+            <h2 > {{destination.name}}</h2>
+        </div>
+
+        <div class="packs" >
             <div  *ngFor="let package of packages$ | async">
                 <a>
                     <h3>{{package.packName}}</h3>
                 </a> 
                 <a>
-                    <h3>{{package.descriptionPack}}</h3>
+                    <p>{{package.descriptionPack}}</p>
                 </a> 
                 <a>
-                    <label>Price per person: </label><p>{{package.price}}</p>
+                    <label>Price per person: </label>
+                    <p>{{package.price}}</p>
                 </a> 
 
-                <button routerLink = "/" > Back </button>
-                <button routerLink = "/booking" (click)="sendPack(package)"> Book </button>
-            </div>
-            
+                <div>
+                    <button routerLink = "/"  class=" btn-fail"> Back </button>
+                </div>
+                <br>
+                <div>
+                    <button routerLink = "/booking" (click)="sendPack(package)" class=" btn-success"> Book </button>
+                </div>
+            </div> 
         </div>
     </div>
-<!--(click)="changeData()"
-       <div >
-        <ng-template #otherContent>
-            <div>
-                <div *ngIf="item">
 
-                    <h2>{{item.name | uppercase } Details</h2>
-                    <div><span>id: </span>{{item}}</div>
-                   
-                  </div>
-                <button type="button" class="btn btn-success"
-                (click)="changeData()">Back</button>
-            </div>
-            
-        </ng-template>
-    </div>
--->
  
 
    

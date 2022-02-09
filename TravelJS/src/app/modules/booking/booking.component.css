@@ -1,0 +1,87 @@
+/* ------- ontainer style------- */
+
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userSelection{
+    width: 70%;
+    max-width: 1000px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+}
+
+h1{
+    align-items: center;
+    text-align: center;
+    text-decoration-color: rgb(100, 136, 172);
+}
+
+h2{
+    align-items: center;
+    text-align: center;
+    text-decoration-color: rgb(100, 136, 172);
+}
+
+
+/* ------- Button style  sumbit------- */
+.btn-success {
+    background-color: #76d0d3; 
+    border: 1px solid #42b2b6; 
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+  }
+    
+    .btn-success:not(:last-child) {
+      border-right: none; /* Prevent double borders */
+    }
+    
+    /* Clear floats (clearfix hack) */
+    .btn-success:after {
+      content: "";
+      clear: both;
+      display:table;
+    }
+    
+    /* Add a background color on hover */
+    .btn-success:hover {
+      background-color: #34a07f;
+    }/* ------- Button style  back------- */
+.btn-fail {
+    background-color: #76d0d3; 
+    border: 1px solid #42b2b6; 
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+  }
+    
+    .btn-fail:not(:last-child) {
+      border-right: none; /* Prevent double borders */
+    }
+    
+    /* Clear floats (clearfix hack) */
+    .btn-fail:after {
+      content: "";
+      clear: both;
+      display:table;
+    }
+    
+    /* Add a background color on hover */
+    .btn-fail:hover {
+      background-color: #34a07f;
+    }
+
+    

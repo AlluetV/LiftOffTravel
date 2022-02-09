@@ -1,15 +1,19 @@
 <div class="container">
   <title>Booking Form</title>
-  <div>
-    <h2>Destination Selected</h2>
-    <h3>{{destination.name}}</h3> 
-    <h2> Travel Package Selected</h2>
-    <h3>{{userPack.packName}}</h3>
+  <div class="userSelection">
+    <div>
+      <h2>Destination Selected:</h2>
+      <h1>****{{destination.name}}****</h1>
+    </div>
+    <div>
+      <h2> Travel Package Selected:</h2>
+      <h1>{{userPack.packName}}</h1>
+    </div>
   </div>
 
   <div>
-    <label>Price per person:</label>
-    <P>{{ userPack.price}}</P>
+    <label>Price per person:  <p>{{ userPack.price}}</p> </label>
+   
   </div>
 
   <form  #bookingForm="ngForm"  (ngSubmit)="onSubmit()" novalidate>
@@ -26,24 +30,32 @@
       <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="booking.email" required>
       <div class="alert alert-danger">
         Email is required
-    </div>
+      </div>
 
+      <div>
+        <label>Travel date:</label>
+        <input type="date" class="form-control"  id="travelDate" name="travelDate" [(ngModel)]="booking.travelDate"  required >
+      </div>
+
+      <div>
+        <label>Number of travelers:</label>
+        <input type ="number" min="1" max="10" value="1" id="count" name="count" [(ngModel)]="booking.count">
+      </div>
+
+    </div>
+    <br>
     <div>
-      <label>Travel date:</label>
-      <input type="date" class="form-control"  id="travelDate" name="travelDate" [(ngModel)]="booking.travelDate"  required >
+      <button routerLink = "/"  class=" btn-fail" >Back</button>
     </div>
-
+    <br>
     <div>
-      <label>Number of travelers:</label>
-      <input type ="number" min="1" max="10" value="1" id="count" name="count" [(ngModel)]="booking.count">
+      <button type="submit" class=" btn-success">Submit</button>
     </div>
-
-    </div>
-    <button routerLink = "/"  class="btn btn-fail" >Back</button>
-    <button type="submit" class="btn btn-success">Submit</button>
+    
 </form>
 </div>
-<div class="reservation" [hidden]="isDisplay"  *ngIf ="false">
+
+<div class="reservation">
   <div *ngFor="let item on confirmation$">
     <p>Congratulations {{item.username}}</p>
     <p>Your number of confirmation is:</p>
