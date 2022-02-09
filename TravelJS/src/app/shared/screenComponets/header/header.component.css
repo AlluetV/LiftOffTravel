@@ -1,4 +1,12 @@
 header{
     padding: 20px;
     background-color: cadetblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50%;
+    color: rgb(78, 119, 106);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
 }
