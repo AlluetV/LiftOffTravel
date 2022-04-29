@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { AdministratorComponent } from 'src/app/modules/administrator/administrator.component';
 
 
 @NgModule({
@@ -15,8 +16,9 @@ import { FormsModule } from '@angular/forms';
     DefaultComponent,
     HomeComponent,
     PackagesComponent,
-    BookingComponent
-  
+    BookingComponent,
+    AdministratorComponent
+   
   ],
   imports: [
     CommonModule,

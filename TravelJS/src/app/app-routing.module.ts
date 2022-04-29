@@ -5,6 +5,7 @@ import { PackagesComponent } from './modules/packages/packages.component';
 import { BookingComponent } from './modules/booking/booking.component';
 import { HomeComponent } from './modules/home/home.component';
 import { DefaultComponent } from './layout/default/default.component';
+import { AdministratorComponent } from './modules/administrator/administrator.component';
 
 const routes: Routes = [
   { path: '', component: DefaultComponent,
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'booking',
   component: BookingComponent
+  }, 
+  {
+    path: 'administrator',
+  component: AdministratorComponent
   }]
 }]
 
