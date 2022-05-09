@@ -18,6 +18,7 @@ public class SpaceTravelConfig {
                 registry.addMapping("/destinations/**").allowedOrigins("http://localhost:4200");
                 registry.addMapping("/packages/**").allowedOrigins("http://localhost:4200");
                 registry.addMapping("/booking/**").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/administrator/**").allowedOrigins("http://localhost:4200");
             }
         };
     }
