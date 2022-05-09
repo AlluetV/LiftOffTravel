@@ -1,16 +1,88 @@
-<div class="displayadmin" style="place-content:initial;">
-    <h1> Admin Center</h1>
-    <p>Welcome </p>
-    <div>
-        <h4>Add new destination</h4>
-        <h4>Delete a destinations</h4>
+<div class="container" style="place-content:initial;">
+    <div> 
+        <h1> Administration Center</h1>
+        <p>Welcome in this page you are able to add destination. </p>
     </div>
-    <div>
-        <h4>Add packages</h4>
-        <h4>Delete packages</h4>
-    </div>
-    <div>
-        <h4>Add promo</h4>
-    </div>
+   <form #adminForm="ngForm" (ngSubmit)="onSubmitAdmin()"  novalidate>
+       <div>
+           <div>
+                <title> Destination Managment</title>
+                <h1>Destination Managment</h1>
+           </div>
+           <div>
+               <table class="tableAdmin">
+                 <body>
+                        <tr>
+                            <th>Destinations</th>
+                            <th>Packages</th>
+                            <th>Books</th>
+                            <th>To Do</th>
+                        </tr>
+                        <tr>
+                        <td > 
+                            <ul>
+                                    <li> Destination: </li>
+                                    <li> Description:</li>
+                                    <li>  Image: </li>
+                                </ul>
+                        </td>
+                        <td> 
+                                <ul>
+                                    <li> Packages</li>
+                                </ul>
+                            </td>
+                            <td> 
+                                <ul>
+                                    <li>Booked by </li>
+                                </ul>
+                            </td>
+                            <td> 
+                                <ul>
+                                    <li><button class="btnToDo">Edit</button>  </li>
+                                    <li> <button class="btnToDo">Delete</button> </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </body> 
+               </table>
+           </div>
+
+           <div>
+               <div>
+                   <h3>Add Destination</h3>
+               </div>
+
+               <div> 
+                    <label for="name">Destination Name:</label> 
+                     <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addedDestination.name" #name="ngModel"  required>
+                </div>
+                <div class="alert alert-danger">
+                    Name Destination is required
+                </div> 
+                <br>
+                <div>
+                    <label for="description">Description:</label>
+                     <input type="text" class="form-control" id="description" name="description" [(ngModel)]="addedDestination.description" required>
+                </div>
+                <div class="alert alert-danger">
+                    Description is required
+                </div>
+                <br>
+                <div>
+                    <label for="url">Image url:</label>
+                     <input type="text" class="form-control" id="url" name="url" [(ngModel)]="addedDestination.url" required>
+                </div>
+                <div class="alert alert-danger">
+                    Image url is required
+                </div>
+           </div>
+       </div>
+       <br>
+       <div>
+        <button type="submit" class=" btn-success"> Save </button>
+      </div>
+
+   </form>
    
 </div>
+
